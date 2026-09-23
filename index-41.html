@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0f19">
+  <meta name="description" content="QH VisionX؛ خدمات هوش مصنوعی، طراحی وب، اپلیکیشن، اتوماسیون و فناوری زبان دری.">
+  <meta name="keywords" content="QH VisionX, هوش مصنوعی, طراحی سایت, اپلیکیشن, چت بات, زبان دری, افغانستان">
+  <title>QH VisionX | هوش مصنوعی برای ساختن آینده دیجیتال</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap');
+
+    :root{
+      --bg:#070a10;
+      --bg2:#0d111a;
+      --card:rgba(255,255,255,.055);
+      --card2:rgba(255,255,255,.085);
+      --text:#f7f9fc;
+      --muted:#aeb7c7;
+      --line:rgba(255,255,255,.11);
+      --silver:#d8dee8;
+      --silver2:#ffffff;
+      --blue:#5ca8ff;
+      --cyan:#64e7ff;
+      --green:#39d98a;
+      --gold:#e8c76b;
+      --shadow:0 20px 70px rgba(0,0,0,.35);
+      --radius:24px;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Tajawal',system-ui,sans-serif;
+      background:
+        radial-gradient(circle at 80% 0%, rgba(92,168,255,.13), transparent 30%),
+        radial-gradient(circle at 10% 20%, rgba(100,231,255,.08), transparent 25%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.85;
+      overflow-x:hidden;
+    }
+    a{text-decoration:none;color:inherit}
+    button,input,textarea,select{font:inherit}
+    .container{width:min(var(--max),92%);margin:auto}
+    .glass{
+      background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(18px);
+    }
+
+    /* Header */
+    header{
+      position:fixed;top:0;left:0;right:0;z-index:1000;
+      background:rgba(7,10,16,.72);
+      border-bottom:1px solid rgba(255,255,255,.07);
+      backdrop-filter:blur(18px);
+    }
+    .nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900}
+    .logo{
+      width:46px;height:46px;border-radius:14px;
+      display:grid;place-items:center;
+      color:#070a10;
+      font-size:15px;
+      background:linear-gradient(145deg,#fff,#9ea8b8 55%,#fff);
+      box-shadow:0 0 30px rgba(255,255,255,.13),inset 0 1px 0 #fff;
+    }
+    .brand span{font-size:18px}
+    .nav-links{display:flex;gap:22px;align-items:center}
+    .nav-links a{color:#cbd3df;font-size:14px;transition:.25s}
+    .nav-links a:hover{color:#fff}
+    .nav-cta{
+      padding:10px 16px;border-radius:12px;
+      border:1px solid rgba(255,255,255,.16);
+      background:linear-gradient(135deg,rgba(255,255,255,.15),rgba(255,255,255,.04));
+    }
+    .menu{display:none;background:none;border:0;color:#fff;font-size:26px;cursor:pointer}
+
+    /* Hero */
+    .hero{min-height:100vh;padding:145px 0 80px;display:grid;place-items:center}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:50px;align-items:center}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:7px 13px;border:1px solid rgba(100,231,255,.22);
+      background:rgba(100,231,255,.06);border-radius:999px;
+      color:#bdefff;font-size:13px;margin-bottom:18px
+    }
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 14px var(--green)}
+    h1{font-size:clamp(42px,6vw,76px);line-height:1.12;letter-spacing:-2px;margin-bottom:20px}
+    .gradient{
+      background:linear-gradient(100deg,#fff,#bfc8d5 40%,#67dfff);
+      -webkit-background-clip:text;background-clip:text;color:transparent
+    }
+    .hero p{font-size:18px;color:var(--muted);max-width:650px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      border:1px solid transparent;border-radius:14px;padding:13px 20px;
+      cursor:pointer;transition:.25s;font-weight:800
+    }
+    .btn-primary{
+      color:#071018;background:linear-gradient(135deg,#fff,#cbd4df);
+      box-shadow:0 10px 30px rgba(255,255,255,.1)
+    }
+    .btn-primary:hover{transform:translateY(-2px)}
+    .btn-outline{border-color:var(--line);background:rgba(255,255,255,.04);color:#fff}
+    .btn-outline:hover{background:rgba(255,255,255,.09)}
+    .hero-note{margin-top:18px;color:#8490a3;font-size:13px}
+
+    .hero-card{padding:25px;border-radius:30px;position:relative;overflow:hidden}
+    .hero-card:before{
+      content:"";position:absolute;width:250px;height:250px;border-radius:50%;
+      background:rgba(92,168,255,.18);filter:blur(50px);top:-100px;right:-70px
+    }
+    .ai-orb{
+      width:250px;height:250px;margin:12px auto 25px;border-radius:50%;
+      display:grid;place-items:center;position:relative;
+      background:radial-gradient(circle at 35% 30%,#fff 0 2%,#aeb9c9 5%,#283445 25%,#0b111c 60%,#05070b 100%);
+      box-shadow:0 0 80px rgba(92,168,255,.18),inset 0 0 50px rgba(100,231,255,.12);
+      border:1px solid rgba(255,255,255,.15);
+    }
+    .ai-orb:before,.ai-orb:after{
+      content:"";position:absolute;border:1px solid rgba(100,231,255,.35);border-radius:50%;
+    }
+    .ai-orb:before{inset:-25px;transform:rotate(30deg) scaleX(.55)}
+    .ai-orb:after{inset:-43px;transform:rotate(-25deg) scaleX(.35)}
+    .orb-text{font-size:32px;font-weight:900;letter-spacing:2px}
+    .mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .mini{padding:13px;text-align:center;border-radius:16px;background:rgba(255,255,255,.045);border:1px solid var(--line)}
+    .mini b{display:block;font-size:18px}.mini span{color:#8994a6;font-size:11px}
+
+    /* Sections */
+    section{padding:95px 0}
+    .section-head{max-width:720px;margin-bottom:38px}
+    .section-kicker{color:var(--cyan);font-weight:800;font-size:13px}
+    .section-title{font-size:clamp(30px,4vw,46px);line-height:1.25;margin:8px 0 12px}
+    .section-desc{color:var(--muted)}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+
+    .service{padding:25px;border-radius:var(--radius);transition:.25s}
+    .service:hover{transform:translateY(-5px);border-color:rgba(100,231,255,.25)}
+    .icon{
+      width:52px;height:52px;border-radius:16px;display:grid;place-items:center;
+      background:rgba(255,255,255,.07);font-size:25px;margin-bottom:18px
+    }
+    .service h3{font-size:20px;margin-bottom:7px}
+    .service p{font-size:14px;color:var(--muted)}
+    .service ul{list-style:none;margin-top:14px;color:#bbc4d1;font-size:13px}
+    .service li{margin:5px 0}.service li:before{content:"✓";color:var(--green);margin-left:7px}
+
+    /* Pricing */
+    .price{padding:27px;border-radius:var(--radius);position:relative}
+    .price.featured{border-color:rgba(100,231,255,.35);box-shadow:0 0 55px rgba(92,168,255,.09)}
+    .badge{position:absolute;top:18px;left:18px;font-size:11px;padding:5px 9px;border-radius:999px;background:rgba(100,231,255,.12);color:#bcefff}
+    .price h3{font-size:21px}
+    .price .amount{font-size:30px;font-weight:900;margin:14px 0 2px}
+    .price .currency{font-size:12px;color:#8f9bad}
+    .price ul{list-style:none;margin:18px 0 22px;color:#bfc8d4;font-size:13px}
+    .price li{padding:6px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+    .price li:last-child{border:0}
+
+    /* Process */
+    .step{padding:23px;border-radius:20px;position:relative}
+    .step-num{
+      width:42px;height:42px;border-radius:13px;display:grid;place-items:center;
+      background:linear-gradient(145deg,#fff,#aab5c4);color:#080b11;font-weight:900;margin-bottom:15px
+    }
+    .step p{font-size:13px;color:var(--muted)}
+
+    /* Portfolio */
+    .portfolio{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .project{min-height:260px;border-radius:25px;padding:25px;overflow:hidden;position:relative}
+    .project:after{
+      content:"";position:absolute;inset:auto -30px -70px -30px;height:170px;
+      background:radial-gradient(circle,rgba(92,168,255,.22),transparent 65%);
+    }
+    .project .tag{font-size:11px;color:#9feaff}
+    .project h3{font-size:25px;margin:8px 0}
+    .project p{color:var(--muted);max-width:520px}
+    .project .mock{
+      position:absolute;bottom:18px;left:18px;right:18px;height:4px;
+      background:linear-gradient(90deg,transparent,#dce6f2,transparent);opacity:.35
+    }
+
+    /* Contact */
+    .contact-wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:20px}
+    .contact-card{padding:28px;border-radius:25px}
+    .contact-item{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+    .contact-item:last-child{border:0}
+    .contact-item .ci{font-size:22px}
+    .contact-item small{display:block;color:#8994a6}
+    form{display:grid;gap:13px}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+    label{font-size:12px;color:#aeb8c7;margin-bottom:5px;display:block}
+    input,textarea,select{
+      width:100%;background:rgba(255,255,255,.045);border:1px solid var(--line);
+      color:#fff;border-radius:13px;padding:12px 13px;outline:none
+    }
+    input:focus,textarea:focus,select:focus{border-color:rgba(100,231,255,.45)}
+    textarea{min-height:125px;resize:vertical}
+    option{background:#0d111a}
+
+    /* CTA */
+    .cta{
+      padding:45px;border-radius:30px;text-align:center;
+      background:linear-gradient(135deg,rgba(255,255,255,.09),rgba(92,168,255,.06));
+      border:1px solid var(--line)
+    }
+    .cta h2{font-size:clamp(28px,4vw,44px);margin-bottom:10px}
+    .cta p{color:var(--muted);max-width:650px;margin:auto}
+
+    footer{padding:35px 0 45px;border-top:1px solid rgba(255,255,255,.07);color:#818c9d;font-size:13px}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}
+    .footer-links{display:flex;gap:16px}.footer-links a:hover{color:#fff}
+
+    #toast{
+      position:fixed;bottom:25px;left:50%;transform:translate(-50%,120px);
+      background:#eef4fb;color:#071018;padding:12px 18px;border-radius:13px;
+      font-size:13px;font-weight:800;z-index:2000;opacity:0;transition:.3s;
+      box-shadow:0 12px 40px rgba(0,0,0,.3)
+    }
+    #toast.show{transform:translate(-50%,0);opacity:1}
+
+    @media(max-width:900px){
+      .nav-links{display:none;position:absolute;top:78px;right:4%;left:4%;padding:15px;flex-direction:column;align-items:stretch;background:#0b0f18;border:1px solid var(--line);border-radius:18px}
+      .nav-links.open{display:flex}
+      .menu{display:block}
+      .hero-grid,.contact-wrap{grid-template-columns:1fr}
+      .grid-4{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:650px){
+      .nav{height:70px}.hero{padding-top:120px}
+      .hero p{font-size:16px}
+      section{padding:70px 0}
+      .grid-3,.portfolio{grid-template-columns:1fr}
+      .grid-4{grid-template-columns:1fr}
+      .row{grid-template-columns:1fr}
+      .ai-orb{width:190px;height:190px}
+      .footer-inner{flex-direction:column;text-align:center}
+      h1{letter-spacing:-1px}
+    }
+  
+/* ===== QH VisionX Creative Motion Layer ===== */
+body{position:relative}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-2;
+  background:
+    linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:linear-gradient(to bottom,black,transparent 80%);
+}
+body:after{
+  content:"";position:fixed;width:320px;height:320px;border-radius:50%;
+  left:var(--mx,50%);top:var(--my,20%);transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(100,231,255,.08),transparent 68%);
+  filter:blur(10px);pointer-events:none;z-index:-1;transition:left .25s ease,top .25s ease;
+}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-13px)}}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 25px rgba(100,231,255,.08)}50%{box-shadow:0 0 55px rgba(100,231,255,.2)}}
+@keyframes rotateSlow{to{transform:rotate(360deg)}}
+@keyframes rotateReverse{to{transform:rotate(-360deg)}}
+@keyframes shimmer{0%{background-position:-300% 0}100%{background-position:300% 0}}
+@keyframes scan{0%{transform:translateY(-150%)}100%{transform:translateY(450%)}}
+@keyframes revealUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes particleFloat{0%{transform:translate3d(0,20px,0);opacity:0}15%{opacity:.8}85%{opacity:.35}100%{transform:translate3d(0,-110vh,0);opacity:0}}
+.hero-card{animation:floatY 5s ease-in-out infinite}
+.ai-orb{animation:pulseGlow 3.5s ease-in-out infinite}
+.ai-orb:before{animation:rotateSlow 14s linear infinite}
+.ai-orb:after{animation:rotateReverse 18s linear infinite}
+.ai-orb .orb-text{position:relative;z-index:2;text-shadow:0 0 25px rgba(255,255,255,.45)}
+.hero-card:after{
+  content:"";position:absolute;left:8%;right:8%;height:2px;top:-10%;
+  background:linear-gradient(90deg,transparent,#8ff0ff,transparent);
+  filter:blur(1px);opacity:.35;animation:scan 5s linear infinite;
+}
+.gradient{
+  background-size:250% auto;
+  animation:shimmer 6s linear infinite;
+}
+.reveal{opacity:0;transform:translateY(28px)}
+.reveal.visible{animation:revealUp .75s cubic-bezier(.2,.8,.2,1) forwards}
+.service,.price,.project,.step,.contact-card{
+  transform-style:preserve-3d;
+  transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;
+}
+.service:hover,.price:hover,.project:hover,.step:hover{
+  box-shadow:0 22px 60px rgba(0,0,0,.3),0 0 30px rgba(100,231,255,.055);
+}
+.section-kicker{letter-spacing:2px}
+.nav-cta{position:relative;overflow:hidden}
+.nav-cta:after,.btn-primary:after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(100deg,transparent 25%,rgba(255,255,255,.45),transparent 75%);
+  transform:translateX(-120%);transition:transform .7s ease;
+}
+.nav-cta:hover:after,.btn-primary:hover:after{transform:translateX(120%)}
+.btn{position:relative;overflow:hidden}
+.particle{
+  position:fixed;bottom:-20px;width:3px;height:3px;border-radius:50%;
+  background:#bfefff;box-shadow:0 0 12px #64e7ff;pointer-events:none;z-index:-1;
+  animation:particleFloat linear forwards;
+}
+.live-line{
+  display:flex;align-items:center;gap:8px;color:#93a0b3;font-size:12px;margin-top:20px
+}
+.live-line i{width:7px;height:7px;border-radius:50%;background:#39d98a;box-shadow:0 0 12px #39d98a;animation:pulseGlow 1.6s infinite}
+.counter{font-variant-numeric:tabular-nums}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#home" class="brand">
+        <div class="logo">QH</div>
+        <span>QH VisionX</span>
+      </a>
+
+      <button class="menu" id="menuBtn" aria-label="منو">☰</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#services">خدمات</a>
+        <a href="#pricing">قیمت‌ها</a>
+        <a href="#portfolio">نمونه‌کار</a>
+        <a href="#process">مراحل کار</a>
+        <a href="#contact" class="nav-cta">شروع پروژه</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> استودیو هوش مصنوعی و تحول دیجیتال</div>
+          <h1>ایده شما را به <span class="gradient">محصول دیجیتال</span> تبدیل می‌کنیم.</h1>
+          <p>
+            QH VisionX راهکارهای هوش مصنوعی، طراحی وب، اپلیکیشن، اتوماسیون و فناوری زبان را
+            برای کسب‌وکارها و پروژه‌های نوآورانه ارائه می‌کند.
+          </p>
+
+          <div class="actions">
+            <a class="btn btn-primary" href="#contact">درخواست پروژه ←</a>
+            <a class="btn btn-outline" href="#services">مشاهده خدمات</a>
+          </div>
+          <div class="hero-note">طراحی مدرن • راهکارهای هوشمند • پشتیبانی پروژه</div><div class="live-line"><i></i><span>QH VisionX — آماده تبدیل ایده به محصول دیجیتال</span></div>
+        </div>
+
+        <div class="hero-card glass">
+          <div class="ai-orb"><div class="orb-text">QH</div></div>
+          <div class="mini-stats">
+            <div class="mini"><b>AI</b><span>هوش مصنوعی</span></div>
+            <div class="mini"><b>WEB</b><span>توسعه وب</span></div>
+            <div class="mini"><b>DX</b><span>تحول دیجیتال</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">SERVICES</div>
+          <h2 class="section-title">خدمات QH VisionX</h2>
+          <p class="section-desc">از طراحی اولیه تا ساخت و راه‌اندازی محصول دیجیتال، یک مسیر یکپارچه برای پروژه شما.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="service glass reveal">
+            <div class="icon">🤖</div><h3>راهکارهای هوش مصنوعی</h3>
+            <p>ساخت ابزارها و دستیارهای هوشمند متناسب با نیاز پروژه.</p>
+            <ul><li>چت‌بات AI</li><li>دستیار هوشمند</li><li>پردازش متن</li><li>اتوماسیون</li></ul>
+          </article>
+
+          <article class="service glass">
+            <div class="icon">🌐</div><h3>طراحی وب‌سایت</h3>
+            <p>سایت‌های سریع، واکنش‌گرا و مناسب موبایل.</p>
+            <ul><li>سایت شرکتی</li><li>فروشگاهی</li><li>Landing Page</li><li>وب‌اپلیکیشن</li></ul>
+          </article>
+
+          <article class="service glass">
+            <div class="icon">📱</div><h3>اپلیکیشن</h3>
+            <p>تبدیل ایده‌های دیجیتال به اپلیکیشن و PWA.</p>
+            <ul><li>اپ کسب‌وکار</li><li>اپ خدماتی</li><li>PWA</li><li>اتصال API</li></ul>
+          </article>
+
+          <article class="service glass">
+            <div class="icon">⚙️</div><h3>اتوماسیون کسب‌وکار</h3>
+            <p>کاهش کارهای تکراری و ایجاد گردش‌کار هوشمند.</p>
+            <ul><li>فرم و سفارش</li><li>گزارش‌گیری</li><li>مدیریت اطلاعات</li><li>گردش‌کار</li></ul>
+          </article>
+
+          <article class="service glass">
+            <div class="icon">🎨</div><h3>برند و محتوای دیجیتال</h3>
+            <p>طراحی هویت بصری و محتوای مناسب فضای دیجیتال.</p>
+            <ul><li>لوگو</li><li>بنر</li><li>محتوای شبکه اجتماعی</li><li>طراحی تبلیغاتی</li></ul>
+          </article>
+
+          <article class="service glass">
+            <div class="icon">🧠</div><h3>فناوری زبان دری</h3>
+            <p>پروژه‌های تحقیق و توسعه برای زبان دری و محتوای بومی.</p>
+            <ul><li>NLP</li><li>داده و Corpus</li><li>تحلیل متن</li><li>ابزارهای زبانی</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">PACKAGES</div>
+          <h2 class="section-title">پکیج‌های پیشنهادی</h2>
+          <p class="section-desc">قیمت‌ها نمونه‌اند و بر اساس امکانات، زمان و پیچیدگی پروژه قابل تغییر هستند.</p>
+        </div>
+
+        <div class="grid-4">
+          <article class="price glass reveal">
+            <h3>Starter</h3><div class="amount">۳,۵۰۰</div><div class="currency">افغانی — شروع پیشنهادی</div>
+            <ul><li>سایت معرفی</li><li>طراحی موبایل</li><li>دکمه WhatsApp</li><li>فرم تماس</li><li>Google Maps</li></ul>
+            <a class="btn btn-outline" href="#contact">درخواست</a>
+          </article>
+
+          <article class="price glass">
+            <h3>Business</h3><div class="amount">۸,۰۰۰</div><div class="currency">افغانی — حرفه‌ای</div>
+            <ul><li>سایت چندصفحه‌ای</li><li>SEO پایه</li><li>گالری</li><li>فرم سفارش</li><li>شبکه‌های اجتماعی</li></ul>
+            <a class="btn btn-outline" href="#contact">درخواست</a>
+          </article>
+
+          <article class="price glass featured">
+            <span class="badge">محبوب</span>
+            <h3>AI Business</h3><div class="amount">۱۵,۰۰۰</div><div class="currency">افغانی — راهکار هوشمند</div>
+            <ul><li>سایت حرفه‌ای</li><li>چت‌بات AI</li><li>فرم سفارش</li><li>اتوماسیون ساده</li><li>SEO پایه</li></ul>
+            <a class="btn btn-primary" href="#contact">شروع پروژه</a>
+          </article>
+
+          <article class="price glass">
+            <h3>AI Pro</h3><div class="amount">۳۰,۰۰۰+</div><div class="currency">افغانی — پروژه اختصاصی</div>
+            <ul><li>وب‌اپلیکیشن</li><li>AI اختصاصی</li><li>دیتابیس</li><li>پنل مدیریت</li><li>اتوماسیون پیشرفته</li></ul>
+            <a class="btn btn-outline" href="#contact">مشاوره</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">PORTFOLIO</div>
+          <h2 class="section-title">نمونه پروژه‌هایی که می‌توانیم بسازیم</h2>
+          <p class="section-desc">این بخش را بعداً با پروژه‌های واقعی و تصاویر نمونه‌کارهای خودتان جایگزین کنید.</p>
+        </div>
+
+        <div class="portfolio">
+          <article class="project glass reveal">
+            <span class="tag">WEB / BUSINESS</span>
+            <h3>سایت تجاری هوشمند</h3>
+            <p>معرفی خدمات، نمونه‌کار، فرم سفارش، WhatsApp و طراحی واکنش‌گرا.</p>
+            <div class="mock"></div>
+          </article>
+          <article class="project glass">
+            <span class="tag">AI / CHATBOT</span>
+            <h3>دستیار هوشمند مشتری</h3>
+            <p>پاسخ‌گویی به سوالات، معرفی خدمات و هدایت مشتری به فرم سفارش.</p>
+            <div class="mock"></div>
+          </article>
+          <article class="project glass">
+            <span class="tag">APP / PWA</span>
+            <h3>اپلیکیشن کسب‌وکار</h3>
+            <p>محصول موبایلی سبک با رابط کاربری مدرن و قابلیت اتصال به API.</p>
+            <div class="mock"></div>
+          </article>
+          <article class="project glass">
+            <span class="tag">DARI / NLP</span>
+            <h3>فناوری زبان دری</h3>
+            <p>ابزارهای تحلیل متن، داده‌سازی و پروژه‌های تحقیق و توسعه زبان.</p>
+            <div class="mock"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">PROCESS</div>
+          <h2 class="section-title">مراحل اجرای پروژه</h2>
+        </div>
+
+        <div class="grid-4">
+          <article class="step glass reveal"><div class="step-num">۱</div><h3>مشاوره</h3><p>نیاز و هدف پروژه مشخص می‌شود.</p></article>
+          <article class="step glass"><div class="step-num">۲</div><h3>طراحی</h3><p>ساختار، رابط کاربری و مسیر اجرای پروژه طراحی می‌شود.</p></article>
+          <article class="step glass"><div class="step-num">۳</div><h3>توسعه</h3><p>کدنویسی، اتصال سرویس‌ها و پیاده‌سازی امکانات.</p></article>
+          <article class="step glass"><div class="step-num">۴</div><h3>تحویل</h3><p>تست، اصلاحات و آماده‌سازی برای انتشار.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta reveal">
+          <h2>یک ایده دارید؟ آن را به محصول تبدیل کنیم.</h2>
+          <p>جزئیات پروژه خود را بفرستید تا نیازمندی‌ها، مسیر اجرا و برآورد اولیه مشخص شود.</p>
+          <div class="actions" style="justify-content:center">
+            <a class="btn btn-primary" href="#contact">ارسال درخواست پروژه</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">CONTACT</div>
+          <h2 class="section-title">شروع یک پروژه جدید</h2>
+          <p class="section-desc">فرم زیر در نسخه فعلی اطلاعات را آماده ارسال در WhatsApp می‌کند و نیاز به سرور ندارد.</p>
+        </div>
+
+        <div class="contact-wrap">
+          <div class="contact-card glass reveal">
+            <h3 style="font-size:25px;margin-bottom:10px">QH VisionX</h3>
+            <p style="color:var(--muted);font-size:14px">راهکارهای هوش مصنوعی و تحول دیجیتال.</p>
+
+            <div class="contact-item">
+              <div class="ci">📱</div>
+              <div><small>WhatsApp</small><b dir="ltr">+93 799 687 687</b></div>
+            </div>
+            <div class="contact-item">
+              <div class="ci">🌐</div>
+              <div><small>Website</small><b>QH VisionX</b></div>
+            </div>
+            <div class="contact-item">
+              <div class="ci">📍</div>
+              <div><small>محدوده فعالیت</small><b>افغانستان و پروژه‌های آنلاین</b></div>
+            </div>
+          </div>
+
+          <div class="contact-card glass">
+            <form id="projectForm">
+              <div class="row">
+                <div><label for="name">نام</label><input id="name" required placeholder="نام شما"></div>
+                <div><label for="phone">شماره تماس</label><input id="phone" required placeholder="+93 ..."></div>
+              </div>
+              <div class="row">
+                <div>
+                  <label for="service">نوع پروژه</label>
+                  <select id="service">
+                    <option>طراحی وب‌سایت</option>
+                    <option>چت‌بات هوش مصنوعی</option>
+                    <option>اپلیکیشن / PWA</option>
+                    <option>اتوماسیون</option>
+                    <option>طراحی برند و محتوا</option>
+                    <option>فناوری زبان دری</option>
+                    <option>سایر</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="budget">بودجه تقریبی</label>
+                  <select id="budget">
+                    <option>نیاز به مشاوره دارم</option>
+                    <option>۳,۰۰۰ تا ۷,۰۰۰ افغانی</option>
+                    <option>۷,۰۰۰ تا ۱۵,۰۰۰ افغانی</option>
+                    <option>۱۵,۰۰۰ تا ۳۰,۰۰۰ افغانی</option>
+                    <option>بیشتر از ۳۰,۰۰۰ افغانی</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label for="message">توضیحات پروژه</label>
+                <textarea id="message" required placeholder="چه چیزی می‌خواهید بسازید؟"></textarea>
+              </div>
+              <button class="btn btn-primary" type="submit">ارسال درخواست در WhatsApp ↗</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> QH VisionX — تمامی حقوق محفوظ است.</div>
+      <div class="footer-links">
+        <a href="#home">خانه</a>
+        <a href="#services">خدمات</a>
+        <a href="#contact">تماس</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast">درخواست آماده شد.</div>
+
+  <script>
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // WhatsApp project form
+    const form = document.getElementById('projectForm');
+    const toast = document.getElementById('toast');
+    const whatsapp = '93799687687';
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const service = document.getElementById('service').value;
+      const budget = document.getElementById('budget').value;
+      const message = document.getElementById('message').value.trim();
+
+      const text =
+`سلام QH VisionX
+من ${name} هستم.
+
+نوع پروژه: ${service}
+بودجه تقریبی: ${budget}
+شماره تماس: ${phone}
+
+توضیحات:
+${message}`;
+
+      const url = 'https://wa.me/' + whatsapp + '?text=' + encodeURIComponent(text);
+      window.open(url, '_blank');
+
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2800);
+    });
+  
+    // ===== QH VisionX Motion Engine =====
+    // Reveal elements on scroll
+    const revealItems = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.12});
+    revealItems.forEach(el=>revealObserver.observe(el));
+
+    // Mouse-following ambient glow
+    document.addEventListener('pointermove', (e)=>{
+      document.documentElement.style.setProperty('--mx', e.clientX + 'px');
+      document.documentElement.style.setProperty('--my', e.clientY + 'px');
+    }, {passive:true});
+
+    // Lightweight floating particles
+    const particleCount = window.innerWidth < 600 ? 14 : 26;
+    for(let i=0;i<particleCount;i++){
+      const p=document.createElement('span');
+      p.className='particle';
+      p.style.left=(Math.random()*100)+'vw';
+      p.style.animationDuration=(7+Math.random()*10)+'s';
+      p.style.animationDelay=(-Math.random()*12)+'s';
+      p.style.opacity=(.25+Math.random()*.55);
+      p.style.transform=`scale(${.5+Math.random()*1.5})`;
+      document.body.appendChild(p);
+    }
+
+    // Subtle 3D tilt for desktop pointer devices
+    if(window.matchMedia('(pointer:fine)').matches){
+      document.querySelectorAll('.service,.price,.project,.step').forEach(card=>{
+        card.addEventListener('pointermove',(e)=>{
+          const r=card.getBoundingClientRect();
+          const x=(e.clientX-r.left)/r.width-.5;
+          const y=(e.clientY-r.top)/r.height-.5;
+          card.style.transform=`perspective(900px) rotateX(${(-y*4).toFixed(2)}deg) rotateY(${(x*5).toFixed(2)}deg) translateY(-4px)`;
+        });
+        card.addEventListener('pointerleave',()=>{card.style.transform=''});
+      });
+    }
+
+  </script>
+</body>
+</html>
